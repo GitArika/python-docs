@@ -1,7 +1,7 @@
 # Constants for calculation
 
 # Expected net salary
-net_salary_target = 8000
+net_salary_target = 2600 
 
 # Fixed values for INSS and IRRF calculations
 inss_teto = 877.24  # maximum INSS discount
@@ -78,11 +78,12 @@ def calculate_optimized_gross_salary(net_target, tolerance=0.01):
 # Run calculation
 gross_salary, net_salary, inss_discount, irrf_discount, vt_discount, vr_discount, co_participation_discount = calculate_optimized_gross_salary(net_salary_target)
 
-print(f'For the target compensation of: R${net_salary_target}')
 print(f'Gross compensation should be: R${round(gross_salary, 2)}')
-print('Applied discounts:')
-print(f'INSS: R${round(inss_discount, 2)}')
-print(f'IRRF: R${round(irrf_discount, 2)}')
-print(f'VT: R${round(vt_discount, 2)}')
-print(f'VR: R${round(vr_discount, 2)}')
-print(f'Plano de Saúde: R${round(co_participation_discount, 2)}')
+print(f'For the target compensation of: R${net_salary_target}')
+print(f'Tota Discounts: R${round(inss_discount + irrf_discount + vt_discount + vr_discount + co_participation_discount, 2)}')
+# print('Applied discounts:')
+# print(f'INSS: R${round(inss_discount, 2)}')
+# print(f'IRRF: R${round(irrf_discount, 2)}')
+# print(f'VT: R${round(vt_discount, 2)}')
+# print(f'VR: R${round(vr_discount, 2)}')
+# print(f'Plano de Saúde: R${round(co_participation_discount, 2)}')
