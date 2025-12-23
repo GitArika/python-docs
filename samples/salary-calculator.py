@@ -1,7 +1,7 @@
 # Constants for calculation
 
 # Expected net salary
-net_salary_target = 2600 
+net_salary_target = 7000 
 
 # Fixed values for INSS and IRRF calculations
 inss_teto = 877.24  # maximum INSS discount
@@ -14,16 +14,16 @@ co_participation_percentage = 0.05  # assumed average co-participation in health
 
 # Placeholder function to calculate IRRF based on brackets (2024)
 def calculate_irrf(salary_base):
-    if salary_base <= 2259.20:
+    if salary_base <= 5000:
         return 0
-    elif salary_base <= 2826.65:
-        return (salary_base * 0.075) - 164.44
-    elif salary_base <= 3751.05:
-        return (salary_base * 0.15) - 381.44
-    elif salary_base <= 4664.68:
-        return (salary_base * 0.225) - 662.77
+    elif salary_base <= 7423.07:
+        return (salary_base * 0.075) - 375
+    elif salary_base <= 9850.63:
+        return (salary_base * 0.15) - 931.73
+    elif salary_base <= 12249.92:
+        return (salary_base * 0.225) - 1670.53
     else:
-        return (salary_base * 0.275) - 884.96
+        return (salary_base * 0.275) - 2283.03
 
 # INSS rate brackets and limits for 2024
 inss_brackets = [
@@ -81,9 +81,9 @@ gross_salary, net_salary, inss_discount, irrf_discount, vt_discount, vr_discount
 print(f'Gross compensation should be: R${round(gross_salary, 2)}')
 print(f'For the target compensation of: R${net_salary_target}')
 print(f'Tota Discounts: R${round(inss_discount + irrf_discount + vt_discount + vr_discount + co_participation_discount, 2)}')
-# print('Applied discounts:')
-# print(f'INSS: R${round(inss_discount, 2)}')
-# print(f'IRRF: R${round(irrf_discount, 2)}')
-# print(f'VT: R${round(vt_discount, 2)}')
-# print(f'VR: R${round(vr_discount, 2)}')
-# print(f'Plano de Saúde: R${round(co_participation_discount, 2)}')
+print('Applied discounts:')
+print(f'INSS: R${round(inss_discount, 2)}')
+print(f'IRRF: R${round(irrf_discount, 2)}')
+print(f'VT: R${round(vt_discount, 2)}')
+print(f'VR: R${round(vr_discount, 2)}')
+print(f'Plano de Saúde: R${round(co_participation_discount, 2)}')
